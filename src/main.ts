@@ -425,24 +425,65 @@ hangingSpidey.addEventListener('animationend', (e) => {
 });
 
 // ------------------------------------------------------------------
-// 6) Share Button
+// 6) Share Button (Shares Square JPG Card + Custom Message via Web Share API)
 // ------------------------------------------------------------------
-shareSiteBtn.addEventListener('click', async () => {
-  const shareData = {
-    title: 'SpideyQR | Spider-Man Themed UPI QR',
-    text: 'Make your own custom Spider-Man themed UPI QR in 5 seconds!',
-    url: window.location.href,
-  };
+let cachedShareFile: File | null = null;
+
+async function getShareImageFile(): Promise<File | null> {
+  if (cachedShareFile) return cachedShareFile;
   try {
-    if (navigator.share) {
-      await navigator.share(shareData);
-      return;
-    }
+    const res = await fetch('/assets/share-card.jpg');
+    if (!res.ok) return null;
+    const blob = await res.blob();
+    cachedShareFile = new File([blob], 'SpideyQR.jpg', { type: 'image/jpeg' });
+    return cachedShareFile;
   } catch {
-    return;
+    return null;
   }
+}
+
+shareSiteBtn.addEventListener('click', async () => {
+  const siteUrl = window.location.href;
+  const shareText = `Ye Spider-Man UPI QR theme try kr... Gajab h 🕷️\n${siteUrl}`;
+  const shareTitle = 'SpideyQR | Spider-Man Themed UPI QR';
+
+  if (typeof navigator.share === 'function') {
+    const file = await getShareImageFile();
+
+    // Prefer sharing the square JPG card + message + link together (mobile Android/iOS)
+    if (
+      file &&
+      typeof navigator.canShare === 'function' &&
+      navigator.canShare({ files: [file] })
+    ) {
+      try {
+        await navigator.share({
+          files: [file],
+          title: shareTitle,
+          text: shareText,
+        });
+        return;
+      } catch (err) {
+        if (err instanceof DOMException && err.name === 'AbortError') return;
+        // Fall through to link-only share if a platform rejects mixed file+text share
+      }
+    }
+
+    try {
+      await navigator.share({
+        title: shareTitle,
+        text: 'Ye Spider-Man UPI QR theme try kr... Gajab h 🕷️',
+        url: siteUrl,
+      });
+      return;
+    } catch (err) {
+      if (err instanceof DOMException && err.name === 'AbortError') return;
+    }
+  }
+
+  // Desktop fallback: copy message + link to clipboard
   try {
-    await navigator.clipboard.writeText(window.location.href);
+    await navigator.clipboard.writeText(shareText);
     const old = shareSiteBtn.textContent;
     shareSiteBtn.textContent = 'COPIED ✓';
     setTimeout(() => {
