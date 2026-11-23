@@ -149,10 +149,11 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -48%);
-  width: min(460px, 85%);
+  width: min(470px, 84%);
   height: auto;
-  opacity: 0.055;
+  opacity: 0.095;
   pointer-events: none;
+  user-select: none;
   z-index: 0;
 }
 
@@ -1032,8 +1033,9 @@ input[type='text']:focus {
   }
 
   .spider-watermark {
-    top: 230px;
-    opacity: 0.065;
+    top: 250px;
+    width: min(350px, 88%);
+    opacity: 0.11;
   }
 
   .workspace {

@@ -42,29 +42,16 @@
 
         <!-- Main Dark CRT Tracker Screen -->
         <main class="tracker-screen">
-          <!-- Subtle Dotted Spider Silhouette Watermark -->
-          <svg class="spider-watermark" viewBox="0 0 320 380" aria-hidden="true">
-            <defs>
-              <pattern id="dotGrid" width="8" height="8" patternUnits="userSpaceOnUse">
-                <circle cx="4" cy="4" r="1.8" fill="#ffffff"/>
-              </pattern>
-              <mask id="spiderShape">
-                <g fill="#ffffff">
-                  <ellipse cx="160" cy="145" rx="22" ry="30"/>
-                  <ellipse cx="160" cy="215" rx="32" ry="52"/>
-                  <path d="M142 132 L92 78 L66 10 L82 10 L105 70 L146 118 Z"/>
-                  <path d="M178 132 L228 78 L254 10 L238 10 L215 70 L174 118 Z"/>
-                  <path d="M138 154 L66 118 L24 176 L38 184 L74 136 L140 166 Z"/>
-                  <path d="M182 154 L254 118 L296 176 L282 184 L246 136 L180 166 Z"/>
-                  <path d="M136 178 L64 198 L40 288 L56 292 L78 210 L138 192 Z"/>
-                  <path d="M184 178 L256 198 L280 288 L264 292 L242 210 L182 192 Z"/>
-                  <path d="M142 206 L98 258 L92 368 L108 368 L113 266 L148 220 Z"/>
-                  <path d="M178 206 L222 258 L228 368 L212 368 L207 266 L172 220 Z"/>
-                </g>
-              </mask>
-            </defs>
-            <rect width="320" height="380" fill="url(#dotGrid)" mask="url(#spiderShape)"/>
-          </svg>
+          <!-- Dotted Spider-Man Watermark -->
+          <img
+            class="spider-watermark"
+            src="/assets/spider-watermark.webp"
+            alt=""
+            width="789"
+            height="1024"
+            aria-hidden="true"
+            decoding="async"
+          />
 
           <!-- High-Detail 16-bit Hanging Upside-Down Spidey (Drops in on load, sways, blinks, zips on click/gen) -->
           <button type="button" class="hanging-spidey" id="hangingSpidey" aria-label="Make hanging Spidey bounce" title="Boop Spidey!">
