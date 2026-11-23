@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SpideyQR | Spider-Man Themed UPI QR</title>
+    <meta
+      name="description"
+      content="Create your custom Spider-Man themed UPI QR in seconds. 100% client-side, your UPI ID and QR never leave your device."
+    />
+    <meta name="theme-color" content="#1e6ba3" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single:wght@400;600;700&family=Silkscreen:wght@400;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/styles/main.css" />
+  </head>
+  <body>
+    <div class="page-bg">
+      <div class="tracker-bezel">
+        <!-- Spidey Tracker Top Chrome (Symmetrical Left Mask / Center Plaque / Right Pixel Spider) -->
+        <header class="tracker-bar">
+          <div class="pixel-badge pixel-badge-mask" aria-hidden="true">
+            <svg viewBox="0 0 16 16" width="24" height="24" shape-rendering="crispEdges">
+              <rect x="4" y="1" width="8" height="1" fill="#0d1117"/>
+              <rect x="2" y="2" width="12" height="1" fill="#0d1117"/>
+              <rect x="1" y="3" width="14" height="10" fill="#0d1117"/>
+              <rect x="2" y="13" width="12" height="1" fill="#0d1117"/>
+              <rect x="4" y="14" width="8" height="1" fill="#0d1117"/>
+              <rect x="4" y="2" width="8" height="12" fill="#d92128"/>
+              <rect x="2" y="4" width="12" height="8" fill="#d92128"/>
+              <rect x="3" y="6" width="4" height="4" fill="#0d1117"/>
+              <rect x="9" y="6" width="4" height="4" fill="#0d1117"/>
+              <rect x="4" y="7" width="2" height="2" fill="#ffffff"/>
+              <rect x="10" y="7" width="2" height="2" fill="#ffffff"/>
+            </svg>
+          </div>
+
+          <a class="tracker-plaque" href="/" aria-label="SpideyQR Home">
+            <span class="plaque-word">SPIDEY</span>
+            <span class="plaque-head" aria-hidden="true">
+              <svg viewBox="0 0 16 16" width="24" height="24" shape-rendering="crispEdges">
+                <rect x="4" y="1" width="8" height="14" fill="#0d1117"/>
+                <rect x="2" y="3" width="12" height="10" fill="#0d1117"/>
+                <rect x="4" y="2" width="8" height="12" fill="#e1242b"/>
+                <rect x="3" y="4" width="10" height="8" fill="#e1242b"/>
+                <rect x="3" y="6" width="4" height="4" fill="#0d1117"/>
+                <rect x="9" y="6" width="4" height="4" fill="#0d1117"/>
+                <rect x="4" y="7" width="2" height="2" fill="#ffffff"/>
+                <rect x="10" y="7" width="2" height="2" fill="#ffffff"/>
+              </svg>
+            </span>
+            <span class="plaque-word">QR</span>
+          </a>
+
+          <div class="pixel-badge pixel-badge-spider" aria-hidden="true">
+            <svg viewBox="0 0 16 16" width="22" height="22" shape-rendering="crispEdges">
+              <!-- Classic 8-bit black spider icon matching spideytracker.com right corner -->
+              <rect x="7" y="4" width="2" height="3" fill="#0d1117"/>
+              <rect x="6" y="7" width="4" height="5" fill="#0d1117"/>
+              <rect x="7" y="12" width="2" height="1" fill="#0d1117"/>
+              <!-- Legs -->
+              <rect x="3" y="2" width="1" height="3" fill="#0d1117"/>
+              <rect x="4" y="5" width="2" height="1" fill="#0d1117"/>
+              <rect x="12" y="2" width="1" height="3" fill="#0d1117"/>
+              <rect x="10" y="5" width="2" height="1" fill="#0d1117"/>
+              <rect x="2" y="7" width="4" height="1" fill="#0d1117"/>
+              <rect x="10" y="7" width="4" height="1" fill="#0d1117"/>
+              <rect x="2" y="9" width="4" height="1" fill="#0d1117"/>
+              <rect x="1" y="10" width="1" height="2" fill="#0d1117"/>
+              <rect x="10" y="9" width="4" height="1" fill="#0d1117"/>
+              <rect x="14" y="10" width="1" height="2" fill="#0d1117"/>
+              <rect x="4" y="11" width="2" height="1" fill="#0d1117"/>
+              <rect x="3" y="12" width="1" height="3" fill="#0d1117"/>
+              <rect x="10" y="11" width="2" height="1" fill="#0d1117"/>
+              <rect x="12" y="12" width="1" height="3" fill="#0d1117"/>
+            </svg>
+          </div>
+        </header>
+
+        <!-- Main Dark CRT Tracker Screen -->
+        <main class="tracker-screen">
+          <!-- Subtle Dotted Spider Silhouette Watermark -->
+          <svg class="spider-watermark" viewBox="0 0 320 380" aria-hidden="true">
+            <defs>
+              <pattern id="dotGrid" width="8" height="8" patternUnits="userSpaceOnUse">
+                <circle cx="4" cy="4" r="1.8" fill="#ffffff"/>
+              </pattern>
+              <mask id="spiderShape">
+                <g fill="#ffffff">
+                  <ellipse cx="160" cy="145" rx="22" ry="30"/>
+                  <ellipse cx="160" cy="215" rx="32" ry="52"/>
+                  <path d="M142 132 L92 78 L66 10 L82 10 L105 70 L146 118 Z"/>
+                  <path d="M178 132 L228 78 L254 10 L238 10 L215 70 L174 118 Z"/>
+                  <path d="M138 154 L66 118 L24 176 L38 184 L74 136 L140 166 Z"/>
+                  <path d="M182 154 L254 118 L296 176 L282 184 L246 136 L180 166 Z"/>
+                  <path d="M136 178 L64 198 L40 288 L56 292 L78 210 L138 192 Z"/>
+                  <path d="M184 178 L256 198 L280 288 L264 292 L242 210 L182 192 Z"/>
+                  <path d="M142 206 L98 258 L92 368 L108 368 L113 266 L148 220 Z"/>
+                  <path d="M178 206 L222 258 L228 368 L212 368 L207 266 L172 220 Z"/>
+                </g>
+              </mask>
+            </defs>
+            <rect width="320" height="380" fill="url(#dotGrid)" mask="url(#spiderShape)"/>
+          </svg>
+
+          <!-- Cute 8-bit Hanging Upside-Down Spidey from Top Web Line -->
+          <div class="hanging-spidey" id="hangingSpidey" aria-hidden="true">
+            <div class="web-thread"></div>
+            <svg class="pixel-spidey" viewBox="0 0 20 26" width="44" height="58" shape-rendering="crispEdges">
+              <rect x="8" y="0" width="4" height="2" fill="#0d1117"/>
+              <rect x="9" y="1" width="2" height="2" fill="#e1242b"/>
+              <rect x="6" y="3" width="8" height="5" fill="#0d1117"/>
+              <rect x="7" y="4" width="6" height="4" fill="#2374b5"/>
+              <rect x="5" y="8" width="10" height="6" fill="#0d1117"/>
+              <rect x="6" y="9" width="8" height="4" fill="#e1242b"/>
+              <rect x="6" y="11" width="2" height="2" fill="#2374b5"/>
+              <rect x="12" y="11" width="2" height="2" fill="#2374b5"/>
+              <rect x="5" y="14" width="10" height="10" fill="#0d1117"/>
+              <rect x="4" y="16" width="12" height="6" fill="#0d1117"/>
+              <rect x="6" y="15" width="8" height="8" fill="#e1242b"/>
+              <rect x="5" y="17" width="10" height="4" fill="#e1242b"/>
+              <rect x="5" y="18" width="4" height="3" fill="#0d1117"/>
+              <rect x="11" y="18" width="4" height="3" fill="#0d1117"/>
+              <rect x="6" y="19" width="2" height="2" fill="#ffffff"/>
+              <rect x="12" y="19" width="2" height="2" fill="#ffffff"/>
+            </svg>
+          </div>
+
+          <section class="workspace">
+            <!-- Left: Clean Minimal Form -->
+            <div class="panel">
+              <div class="panel-head">
+                <h1>Spider-Man Themed UPI QR</h1>
+                <p class="subtitle">Add your name &amp; UPI. Runs 100% on your device.</p>
+              </div>
+
+              <form id="generatorForm" class="form" novalidate>
+                <!-- Name -->
+                <div class="field">
+                  <div class="field-label-row">
+                    <label for="nameInput">Name</label>
+                    <span class="field-hint" id="nameHint" hidden>Shorter name fits cleaner on sticker</span>
+                  </div>
+                  <input
+                    id="nameInput"
+                    name="name"
+                    type="text"
+                    maxlength="42"
+                    autocomplete="name"
+                    placeholder="Peter Parker"
+                    required
+                  />
+                </div>
+
+                <!-- UPI ID OR Upload QR on the SAME LINE -->
+                <div class="field">
+                  <div class="field-label-row">
+                    <label for="upiInput">UPI ID <span class="label-sub">(type or upload QR)</span></label>
+                    <span class="decoded-note" id="decodedPill" hidden>QR scanned ✓</span>
+                  </div>
+                  <div class="upi-row">
+                    <input
+                      id="upiInput"
+                      name="upiId"
+                      type="text"
+                      maxlength="64"
+                      autocapitalize="off"
+                      autocorrect="off"
+                      spellcheck="false"
+                      placeholder="pparker@empirebank"
+                      required
+                    />
+                    <span class="or-sep" aria-hidden="true">OR</span>
+                    <input
+                      id="qrFileInput"
+                      type="file"
+                      accept="image/*"
+                      hidden
+                    />
+                    <button
+                      type="button"
+                      id="uploadQrBtn"
+                      class="upload-btn"
+                      title="Upload any UPI QR screenshot (GPay, PhonePe, Paytm, FamPay)"
+                    >
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect x="3" y="3" width="7" height="7" rx="1"/>
+                        <rect x="14" y="3" width="7" height="7" rx="1"/>
+                        <rect x="3" y="14" width="7" height="7" rx="1"/>
+                        <path d="M14 14h3v3h-3zM20 14v3h-1M14 20h6"/>
+                      </svg>
+                      <span>Upload QR</span>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Pocket Pin 1-Tap Toggle -->
+                <div class="field field-inline">
+                  <span class="inline-label">Pocket Pin</span>
+                  <div class="pin-toggle" role="radiogroup" aria-label="Pocket Pin Style">
+                    <button
+                      type="button"
+                      class="pin-opt active"
+                      data-pin="paisa"
+                      aria-pressed="true"
+                    >
+                      I <span class="heart">♥</span> PAISA
+                    </button>
+                    <button
+                      type="button"
+                      class="pin-opt"
+                      data-pin="music"
+                      aria-pressed="false"
+                    >
+                      I <span class="heart">♥</span> MUSIC
+                    </button>
+                  </div>
+                </div>
+
+                <p class="error-msg" id="errorMsg" role="alert" hidden></p>
+
+                <!-- Action Zone -->
+                <div class="action-zone">
+                  <button type="submit" id="generateBtn" class="generate-btn">
+                    <span class="btn-label" id="generateLabel">Generate Spidey QR</span>
+                    <span class="btn-progress" id="generateProgress" aria-hidden="true"></span>
+                  </button>
+
+                  <div class="post-gen-actions" id="postGenActions" hidden>
+                    <div class="split-dl" data-split="main">
+                      <button type="button" class="split-main" id="downloadMainBtn">
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                          <polyline points="7 10 12 15 17 10"/>
+                          <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                        <span class="dl-label">Download PNG</span>
+                      </button>
+                      <button
+                        type="button"
+                        class="split-caret"
+                        aria-label="Choose image format"
+                        aria-expanded="false"
+                        aria-haspopup="menu"
+                      >
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                          <polyline points="6 9 12 15 18 9"/>
+                        </svg>
+                      </button>
+                      <div class="format-menu" role="menu" hidden>
+                        <button type="button" class="format-item is-selected" data-fmt="png" role="menuitem">
+                          <span>PNG</span>
+                          <small>Lossless 2K</small>
+                        </button>
+                        <button type="button" class="format-item" data-fmt="jpg" role="menuitem">
+                          <span>JPG</span>
+                          <small>Smaller file</small>
+                        </button>
+                      </div>
+                    </div>
+
+                    <button type="button" id="regenTextBtn" class="regen-link">
+                      Regenerate
+                    </button>
+                  </div>
+                </div>
+              </form>
+
+              <!-- Clear Context D1 QR Counter -->
+              <div class="counter-box" id="counterBox">
+                <div class="counter-meta">
+                  <span class="counter-label">QRs Generated</span>
+                  <p class="counter-text" id="counterText">Loading...</p>
+                </div>
+                <button type="button" id="shareSiteBtn" class="share-mini-btn">
+                  Share
+                </button>
+              </div>
+            </div>
+
+            <!-- Right: Clean Unobstructed Preview -->
+            <div class="preview-col" id="previewSection">
+              <div class="phone-stage">
+                <div class="phone-frame" id="phoneFrame">
+                  <img
+                    id="previewImg"
+                    src="/assets/sample-preview.webp"
+                    alt="Peter Parker Spider-Man themed UPI QR preview"
+                    width="640"
+                    height="1300"
+                  />
+                  <div class="busy-overlay" id="busyOverlay" hidden>
+                    <div class="pixel-loader" aria-hidden="true">
+                      <span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                    <span class="busy-text" id="busyText">Downloading assets...</span>
+                  </div>
+                </div>
+
+                <!-- Mobile-only Download Button right underneath the preview -->
+                <div class="mobile-preview-dl" id="mobilePreviewDl" hidden>
+                  <div class="split-dl" data-split="mobile">
+                    <button type="button" class="split-main" id="downloadMobileBtn">
+                      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="7 10 12 15 17 10"/>
+                        <line x1="12" y1="15" x2="12" y2="3"/>
+                      </svg>
+                      <span class="dl-label">Download PNG</span>
+                    </button>
+                    <button
+                      type="button"
+                      class="split-caret"
+                      aria-label="Choose image format"
+                      aria-expanded="false"
+                      aria-haspopup="menu"
+                    >
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polyline points="6 9 12 15 18 9"/>
+                      </svg>
+                    </button>
+                    <div class="format-menu" role="menu" hidden>
+                      <button type="button" class="format-item is-selected" data-fmt="png" role="menuitem">
+                        <span>PNG</span>
+                        <small>Lossless 2K</small>
+                      </button>
+                      <button type="button" class="format-item" data-fmt="jpg" role="menuitem">
+                        <span>JPG</span>
+                        <small>Smaller file</small>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+
+      <footer class="footer">
+        <span>100% client-side. Your UPI never leaves your device.</span>
+        <span class="sep">|</span>
+        <span>Fan-made Spider-Man UPI QR tool</span>
+      </footer>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

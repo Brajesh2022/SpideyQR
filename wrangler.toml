@@ -1,0 +1,11 @@
+name = "spideyqr"
+compatibility_date = "2026-07-30"
+pages_build_output_dir = "dist"
+
+# Bind your Cloudflare D1 database in the Cloudflare Pages dashboard
+# (Settings -> Functions -> D1 database bindings -> Variable name: DB)
+# or uncomment & fill in database_id below for Wrangler CLI deploys:
+# [[d1_databases]]
+# binding = "DB"
+# database_name = "spideyqr-db"
+# database_id = "YOUR_D1_DATABASE_ID"

@@ -1,0 +1,23 @@
+{
+  "name": "spideyqr",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --port 4173",
+    "cf:dev": "npx wrangler pages dev dist --d1 DB=spideyqr-db",
+    "cf:migrate:local": "npx wrangler d1 execute spideyqr-db --local --file=./schema.sql",
+    "cf:migrate:remote": "npx wrangler d1 execute spideyqr-db --remote --file=./schema.sql"
+  },
+  "dependencies": {
+    "jsqr": "^1.4.0",
+    "qrcode-generator": "^1.4.4"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250101.0",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.7"
+  }
+}
