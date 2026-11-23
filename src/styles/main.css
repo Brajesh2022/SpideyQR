@@ -669,6 +669,7 @@ input[type='text']:focus {
 .preview-col {
   display: flex;
   justify-content: center;
+  scroll-margin-top: 74px;
 }
 
 .phone-stage {
