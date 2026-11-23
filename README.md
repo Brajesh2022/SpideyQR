@@ -1,4 +1,5 @@
-# SpideyQR — Spider-Man Denim UPI Lockscreen Generator
+# SpideyQR
+Spider-Man Denim UPI QR Generator
 
 100% client-side web app that generates custom **`1280 × 2600`** Spider-Man denim UPI lockscreen wallpapers with:
 
