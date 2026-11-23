@@ -51,6 +51,7 @@ body {
 
 /* Spidey Tracker Retro Blue Outer Bezel */
 .tracker-bezel {
+  position: relative;
   background: var(--bezel-blue);
   border: 3px solid var(--bezel-dark);
   border-radius: 18px;
@@ -71,8 +72,8 @@ body {
 }
 
 .pixel-badge {
-  width: 38px;
-  height: 38px;
+  width: 40px;
+  height: 40px;
   border-radius: 10px;
   border: 2.5px solid var(--ink-black);
   display: flex;
@@ -83,6 +84,7 @@ body {
 
 .pixel-badge-mask {
   justify-self: start;
+  border-radius: 50%;
   background: #f59e0b;
 }
 
@@ -137,7 +139,7 @@ body {
       transparent 3px
     ),
     radial-gradient(circle at 50% 25%, #2c313a 0%, var(--screen-bg) 55%, var(--screen-deep) 100%);
-  padding: 72px 28px 28px;
+  padding: 84px 28px 28px;
   box-shadow: inset 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
@@ -154,7 +156,7 @@ body {
   z-index: 0;
 }
 
-/* 8-bit Hanging Upside-Down Spider-Man from Top Center Web */
+/* High-Detail 16-bit Hanging Upside-Down Spider-Man */
 .hanging-spidey {
   position: absolute;
   top: 0;
@@ -163,26 +165,97 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  pointer-events: none;
-  z-index: 2;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  z-index: 3;
   transform-origin: top center;
-  animation: gentleSway 4.8s ease-in-out infinite;
+  animation: gentleSway 4.6s ease-in-out 0.9s infinite;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.hanging-spidey.is-active {
-  animation: spideyZip 0.7s ease-in-out infinite;
+.hanging-spidey:focus-visible {
+  outline: 2px dashed var(--sky-accent);
+  outline-offset: 4px;
+  border-radius: 6px;
 }
 
 .web-thread {
+  display: block;
   width: 2px;
-  height: 20px;
-  background: rgba(255, 255, 255, 0.85);
+  height: 16px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, #ffffff 100%);
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.35);
+  animation: webRappelThread 0.85s cubic-bezier(0.22, 1.32, 0.36, 1) both;
 }
 
 .pixel-spidey {
   display: block;
-  margin-top: -2px;
-  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.5));
+  margin-top: -1px;
+  filter: drop-shadow(0 5px 7px rgba(0, 0, 0, 0.52));
+  animation: webRappelBody 0.85s cubic-bezier(0.22, 1.32, 0.36, 1) both;
+}
+
+.hanging-spidey.is-active .web-thread {
+  animation: webZipThread 0.65s ease-in-out infinite;
+}
+
+.hanging-spidey.is-active .pixel-spidey {
+  animation: webZipBody 0.65s ease-in-out infinite;
+}
+
+.hanging-spidey.is-bouncing .web-thread {
+  animation: webBoopThread 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.hanging-spidey.is-bouncing .pixel-spidey {
+  animation: webBoopBody 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Expressive pixel eyelid blink layer on both Spidey sprites */
+.spidey-blink {
+  opacity: 0;
+  animation: spideyBlink 5.2s steps(1, end) infinite;
+}
+
+/* Perched Bottom-Left Corner Chibi Spider-Man (Desktop) */
+.corner-spidey {
+  position: absolute;
+  bottom: 6px;
+  left: -10px;
+  z-index: 12;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  transform-origin: bottom center;
+  animation: chibiIdle 2.8s ease-in-out infinite;
+  transition: filter 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.corner-spidey:hover {
+  filter: brightness(1.08);
+}
+
+.corner-spidey:focus-visible {
+  outline: 2px dashed var(--sky-accent);
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
+.corner-spidey-svg {
+  display: block;
+  filter: drop-shadow(0 4px 0 rgba(8, 12, 18, 0.65));
+}
+
+.corner-spidey .spidey-blink {
+  animation-delay: -2.4s;
+}
+
+.corner-spidey.is-jumping {
+  animation: chibiFlipJump 0.68s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 /* Main 2-Column Workspace */
@@ -717,26 +790,30 @@ input[type='text']:focus {
   display: none;
 }
 
-/* Spidey Tracker Pixel Bar Loader */
+/* Spidey Tracker 8-Bar Stepped Cyan Pixel Equalizer Loader */
 .pixel-loader {
   display: flex;
-  gap: 5px;
+  gap: 4px;
   align-items: flex-end;
-  height: 22px;
+  height: 24px;
 }
 
 .pixel-loader span {
-  width: 7px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   background: var(--sky-accent);
   border: 1px solid var(--ink-black);
-  animation: pixelBars 0.85s ease-in-out infinite;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.55);
+  animation: pixelBars 0.96s steps(4, end) infinite;
 }
 
-.pixel-loader span:nth-child(2) { animation-delay: 0.12s; }
-.pixel-loader span:nth-child(3) { animation-delay: 0.24s; background: var(--spidey-red); }
-.pixel-loader span:nth-child(4) { animation-delay: 0.36s; }
-.pixel-loader span:nth-child(5) { animation-delay: 0.48s; }
+.pixel-loader span:nth-child(2) { animation-delay: 0.1s; }
+.pixel-loader span:nth-child(3) { animation-delay: 0.2s; background: #bae6fd; }
+.pixel-loader span:nth-child(4) { animation-delay: 0.3s; background: #e0f2fe; }
+.pixel-loader span:nth-child(5) { animation-delay: 0.4s; background: #e0f2fe; }
+.pixel-loader span:nth-child(6) { animation-delay: 0.5s; background: #bae6fd; }
+.pixel-loader span:nth-child(7) { animation-delay: 0.6s; }
+.pixel-loader span:nth-child(8) { animation-delay: 0.7s; }
 
 .busy-text {
   font-family: var(--font-pixel);
@@ -813,24 +890,87 @@ input[type='text']:focus {
   opacity: 0.45;
 }
 
-@keyframes gentleSway {
-  0%, 100% { transform: translateX(-50%) rotate(-2.5deg); }
-  50% { transform: translateX(-50%) rotate(2.5deg); }
+/* Authentic Spidey Tracker Sprite Animations */
+@keyframes webRappelThread {
+  0% { height: 0; opacity: 0.3; }
+  65% { height: 24px; opacity: 1; }
+  85% { height: 13px; }
+  100% { height: 16px; opacity: 1; }
 }
 
-@keyframes spideyZip {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50% { transform: translateX(-50%) translateY(-10px); }
+@keyframes webRappelBody {
+  0% { transform: translateY(-48px) scaleY(1.06); opacity: 0; }
+  25% { opacity: 1; }
+  65% { transform: translateY(3px) scaleY(0.95); }
+  85% { transform: translateY(-2px) scaleY(1.02); }
+  100% { transform: translateY(0) scaleY(1); opacity: 1; }
+}
+
+@keyframes gentleSway {
+  0%, 100% { transform: translateX(-50%) rotate(-3deg); }
+  50% { transform: translateX(-50%) rotate(3deg); }
+}
+
+@keyframes webZipThread {
+  0%, 100% { height: 16px; }
+  45% { height: 5px; }
+}
+
+@keyframes webZipBody {
+  0%, 100% { transform: translateY(0); }
+  45% { transform: translateY(-4px) scale(1.04); }
+}
+
+@keyframes webBoopThread {
+  0% { height: 16px; }
+  35% { height: 28px; }
+  70% { height: 10px; }
+  100% { height: 16px; }
+}
+
+@keyframes webBoopBody {
+  0% { transform: scale(1); }
+  35% { transform: scale(0.94, 1.08); }
+  70% { transform: scale(1.06, 0.94); }
+  100% { transform: scale(1); }
+}
+
+@keyframes spideyBlink {
+  0%, 91%, 94%, 97%, 100% { opacity: 0; }
+  92%, 93%, 95%, 96% { opacity: 1; }
+}
+
+@keyframes chibiIdle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+@keyframes chibiFlipJump {
+  0% { transform: translateY(0) rotate(0deg) scale(1); }
+  15% { transform: translateY(2px) scale(1.08, 0.9); }
+  50% { transform: translateY(-34px) rotate(-180deg) scale(1.06); }
+  85% { transform: translateY(-4px) rotate(-360deg) scale(0.96, 1.05); }
+  100% { transform: translateY(0) rotate(-360deg) scale(1); }
 }
 
 @keyframes pixelBars {
-  0%, 100% { height: 7px; opacity: 0.55; }
+  0%, 100% { height: 6px; opacity: 0.6; }
   50% { height: 22px; opacity: 1; }
 }
 
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(5px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hanging-spidey,
+  .web-thread,
+  .pixel-spidey,
+  .corner-spidey,
+  .spidey-blink {
+    animation: none !important;
+  }
 }
 
 /* Mobile Responsive: Punchy Native Spidey-App Feel (Zero nested boxes!) */
@@ -857,6 +997,10 @@ input[type='text']:focus {
     background: transparent;
   }
 
+  .corner-spidey {
+    display: none;
+  }
+
   .tracker-bar {
     position: sticky;
     top: 0;
@@ -873,7 +1017,7 @@ input[type='text']:focus {
     flex: 1;
     border: 0;
     border-radius: 0;
-    padding: 76px 18px 28px;
+    padding: 86px 18px 28px;
     box-shadow: none;
     background:
       repeating-linear-gradient(

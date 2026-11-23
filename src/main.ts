@@ -29,7 +29,8 @@ const previewImg = document.getElementById('previewImg') as HTMLImageElement;
 const mobilePreviewDl = document.getElementById('mobilePreviewDl') as HTMLDivElement;
 const busyOverlay = document.getElementById('busyOverlay') as HTMLDivElement;
 const busyText = document.getElementById('busyText') as HTMLSpanElement;
-const hangingSpidey = document.getElementById('hangingSpidey') as HTMLDivElement;
+const hangingSpidey = document.getElementById('hangingSpidey') as HTMLButtonElement;
+const cornerSpidey = document.getElementById('cornerSpidey') as HTMLButtonElement | null;
 const counterText = document.getElementById('counterText') as HTMLParagraphElement;
 const shareSiteBtn = document.getElementById('shareSiteBtn') as HTMLButtonElement;
 const pinButtons = Array.from(
@@ -370,6 +371,7 @@ async function runGeneration(): Promise<void> {
     incrementGeneratedCount().then(({ count }) => renderCounter(count));
 
     setBusyState(false);
+    triggerCornerJump();
 
     // On phones: smoothly scroll user right down to the generated preview + mobile Download button!
     if (window.innerWidth <= 840) {
@@ -393,7 +395,37 @@ regenTextBtn.addEventListener('click', () => {
 });
 
 // ------------------------------------------------------------------
-// 5) Share Button
+// 5) Interactive Pixel Spidey Sprite Animations
+// ------------------------------------------------------------------
+function triggerCornerJump(): void {
+  if (!cornerSpidey) return;
+  cornerSpidey.classList.remove('is-jumping');
+  void cornerSpidey.offsetWidth;
+  cornerSpidey.classList.add('is-jumping');
+}
+
+cornerSpidey?.addEventListener('click', triggerCornerJump);
+cornerSpidey?.addEventListener('animationend', (e) => {
+  if (e.animationName === 'chibiFlipJump') {
+    cornerSpidey.classList.remove('is-jumping');
+  }
+});
+
+hangingSpidey.addEventListener('click', () => {
+  if (isBusy) return;
+  hangingSpidey.classList.remove('is-bouncing');
+  void hangingSpidey.offsetWidth;
+  hangingSpidey.classList.add('is-bouncing');
+});
+
+hangingSpidey.addEventListener('animationend', (e) => {
+  if (e.animationName === 'webBoopBody' || e.animationName === 'webBoopThread') {
+    hangingSpidey.classList.remove('is-bouncing');
+  }
+});
+
+// ------------------------------------------------------------------
+// 6) Share Button
 // ------------------------------------------------------------------
 shareSiteBtn.addEventListener('click', async () => {
   const shareData = {
