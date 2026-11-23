@@ -124,7 +124,8 @@ body {
 /* Dark CRT Tracker Screen */
 .tracker-screen {
   position: relative;
-  overflow: hidden;
+  overflow-x: clip;
+  overflow-y: visible;
   border-radius: 12px;
   border: 3px solid var(--bezel-dark);
   background:
@@ -536,7 +537,12 @@ input[type='text']:focus {
   display: flex;
   flex-direction: column;
   gap: 3px;
-  z-index: 30;
+  z-index: 60;
+}
+
+.mobile-preview-dl .format-menu {
+  top: auto;
+  bottom: calc(100% + 8px);
 }
 
 .format-menu[hidden] {
@@ -956,7 +962,7 @@ input[type='text']:focus {
 
   .phone-frame {
     box-shadow:
-      0 0 0 2px rgba(219, 33, 40, 0.35),
+      0 0 0 2px rgba(126, 200, 248, 0.2),
       0 18px 44px rgba(0, 0, 0, 0.65);
   }
 

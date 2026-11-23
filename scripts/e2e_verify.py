@@ -148,7 +148,15 @@ with sync_playwright() as p:
     scroll_y = mpage.evaluate("window.scrollY")
     print("Mobile auto-scroll Y:", scroll_y)
     assert scroll_y > 100
-    mpage.screenshot(path=os.path.join(QA_DIR, "v3_mobile_generated.png"), full_page=True)
+
+    # Open mobile bottom dropdown and verify it pops UPWARD strictly above the footer (zero clipping!)
+    mpage.click(".split-dl[data-split='mobile'] .split-caret")
+    mpage.wait_for_selector(".split-dl[data-split='mobile'] .format-menu:not([hidden])")
+    menu_box = mpage.locator(".split-dl[data-split='mobile'] .format-menu").bounding_box()
+    footer_box = mpage.locator(".footer").bounding_box()
+    print("Mobile dropdown box:", menu_box, "Footer top:", footer_box["y"])
+    assert menu_box["y"] + menu_box["height"] < footer_box["y"], "Mobile dropdown overlapped footer!"
+    mpage.screenshot(path=os.path.join(QA_DIR, "v5_mobile_dropdown.png"), full_page=True)
 
     browser.close()
 
